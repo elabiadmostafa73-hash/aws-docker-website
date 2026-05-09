@@ -1,2 +1,2 @@
 # aws-docker-website
-Dockerized static website deployed on AWS EC2 using Docker and Nginx
+Cloud deployment project using AWS EC2, Docker, Nginx, and CI/CD concepts
