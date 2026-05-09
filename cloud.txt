@@ -1,0 +1,42 @@
+# شرح مشروع AWS + Docker Deployment
+
+اليوم قمت بتنفيذ أول مشروع Cloud حقيقي باستخدام AWS وDocker.
+
+في البداية قمت بإنشاء EC2 Instance على AWS، وهو عبارة عن سيرفر Linux افتراضي يعمل على الإنترنت داخل بيئة الـ Cloud. اخترت نظام Ubuntu Server وقمت بإعداد الـ Security Groups للتحكم في الوصول إلى السيرفر.
+
+بعد ذلك أنشأت ملف Key Pair بصيغة `.pem` لاستخدامه في الاتصال الآمن بالسيرفر عن طريق SSH بدلًا من استخدام كلمات المرور التقليدية.
+
+ثم استخدمت بروتوكول SSH للاتصال بالسيرفر عن بُعد والتحكم به من خلال الـ Terminal.
+
+بعد الدخول إلى السيرفر قمت بتثبيت Docker، وهو نظام يستخدم لتشغيل التطبيقات داخل Containers بطريقة معزولة ومنظمة، مما يجعل عملية الـ Deployment أسهل وأكثر احترافية.
+
+بعد تثبيت Docker قمت بتشغيل Container يحتوي على Nginx Web Server باستخدام أمر Docker Run، ثم قمت بفتح Port 80 داخل الـ Security Group حتى يصبح الموقع متاحًا عبر الإنترنت.
+
+بعد التأكد من عمل Nginx بنجاح، قمت بإنشاء صفحة HTML خاصة بي تحتوي على رسالة ترحيبية.
+
+ثم أنشأت ملف Dockerfile، وهو ملف يحتوي على التعليمات الخاصة ببناء Docker Image مخصصة. داخل هذا الملف استخدمت صورة Nginx كأساس، ثم قمت بنسخ ملف الـ HTML الخاص بي إلى داخل الـ Container.
+
+بعد ذلك قمت بعمل Build للـ Docker Image الخاصة بالموقع، ثم أوقفت الـ Container القديم وشغّلت Container جديدة باستخدام الـ Image التي قمت ببنائها.
+
+وفي النهاية تمكنت من الوصول إلى موقعي الحقيقي من خلال الـ Public IP الخاص بالسيرفر على AWS.
+
+خلال هذا المشروع تعلمت:
+
+* أساسيات AWS EC2
+* إدارة سيرفرات Linux
+* استخدام SSH
+* Docker Containers و Images
+* إنشاء Dockerfile
+* نشر مواقع الويب على Cloud Server
+* التعامل مع Security Groups وفتح الـ Ports
+* أساسيات Networking داخل AWS
+* Troubleshooting وحل مشاكل الاتصال والـ Firewall
+
+هذا المشروع يعتبر بداية حقيقية في مجال Cloud Engineering وDevOps لأنه يجمع بين:
+
+* Cloud Infrastructure
+* Linux Administration
+* Docker Deployment
+* Networking
+* Security
+* Web Hosting
