@@ -1,1 +1,3 @@
-*.pem 
+*.pem
+new-cloud-key
+cloud-key.pem
