@@ -88,6 +88,10 @@
       <div class="value" id="ram">Loading...</div>
     </div>
 
+   <div class="card">
+    <div class="title">Disk Usage</div>
+    <div class="value" id="disk">Loading...</div>
+  </div>
   </div>
 
   <script>
@@ -105,6 +109,9 @@
       document.getElementById("cpu").innerText = data.cpu;
 
       document.getElementById("ram").innerText = data.ram;
+
+      document.getElementById("disk").innerText = data.disk;
+
     }
 
     loadStats();

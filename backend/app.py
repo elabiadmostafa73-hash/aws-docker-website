@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-import random
+import psutil
 import psycopg2
 
 app = Flask(__name__)
@@ -17,11 +17,18 @@ connection = psycopg2.connect(
 @app.route("/api/stats")
 def stats():
 
+    cpu = psutil.cpu_percent(interval=1)
+
+    ram = psutil.virtual_memory().percent
+
+    disk = psutil.disk_usage('/').percent
+
     data = {
         "status": "Running",
         "containers": "3 Active",
-        "cpu": f"{random.randint(20,70)}%",
-        "ram": f"{random.randint(30,80)}%",
+        "cpu": f"{cpu}%",
+        "ram": f"{ram}%",
+        "disk": f"{disk}%",
         "database": "Connected"
     }
 
